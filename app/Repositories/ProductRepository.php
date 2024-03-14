@@ -6,7 +6,6 @@ use App\Models\Product;
 
 class ProductRepository implements Contracts\ProductRepositoryContract
 {
-
     public function getAll()
     {
         return Product::all();
@@ -21,13 +20,13 @@ class ProductRepository implements Contracts\ProductRepositoryContract
     {
         $product = $this->find($id);
         $product->update($data);
+
         return $product;
     }
 
     public function delete(int $id)
     {
-        $product = $this->find($id);
-        $product->delete();
+        return Product::destroy($id);
     }
 
     public function getById(int $id)

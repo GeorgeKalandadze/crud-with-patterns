@@ -6,7 +6,6 @@ use App\Models\Image;
 
 class ImageRepository implements Contracts\ImageRepositoryContract
 {
-
     public function getAll()
     {
         return Image::all();
@@ -21,6 +20,7 @@ class ImageRepository implements Contracts\ImageRepositoryContract
     {
         $image = Image::findOrFail($id);
         $image->update($data);
+
         return $image;
     }
 
